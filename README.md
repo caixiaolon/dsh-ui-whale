@@ -22,9 +22,12 @@ DSH Web UI 的常驻像素鲸鱼伙伴插件：会话标题栏（标题行右侧
 
 ## 安装
 
+> **安装方式（v0.3.27 起自动挂载）**：本包自 v0.3.27 起自带 `cordis.patch.yml` 并声明 `dsh.bundle.patch`——`dsh plugin --profile web add` 安装后**自动注册 profile 层并挂载**，不再需要手写 `insert` 配置行（固定旧 tag 的部署仍需）。**GUI 注意**：插件页「添加插件」只接受注册表包名或本地目录路径；`name@github:owner/repo#tag` 是 pnpm 别名规格（CLI 专用），粘进 GUI 会报 `ERR_PNPM_INVALID_PACKAGE_NAME`——GUI 请克隆后用本地目录路径，或等 npm 发布后用包名。
+
+
 ```sh
 # 方式一：git 依赖固定 tag（公开镜像，推荐；也可用 github:lhh010/dsh-ui-whale）
-dsh plugin --profile web add '@dsh-external/dsh-ui-whale@github:lhh010/dsh-ui-whale#v0.3.25'
+dsh plugin --profile web add '@dsh-external/dsh-ui-whale@github:lhh010/dsh-ui-whale#v0.3.27'
 
 # 方式二：本地 link（开发）
 git clone https://github.com/lhh010/dsh-ui-whale.git
@@ -71,7 +74,8 @@ dsh plugin --profile web add link:/path/to/dsh-ui-whale
 
 | 插件版本 | DSH 快照 | 说明 |
 | --- | --- | --- |
-| `v0.3.26`（默认） | `dsh-v0.1.2-alpha.1 ~ alpha.5`、`rc.1`、`0.1.3-alpha.1 ~ 0.1.7-alpha.2`、`0.1.7-rc.1`、`0.1.7-rc.2`、`0.2.0-rc.1`、`0.2.0-rc.2`、`0.2.1-alpha.1`、`0.2.1-alpha.2` | 声明支持 dsh-v0.2.1-alpha.2（升级实机验证：web profile `--dump-config` 全插件行加载、peer 校验零错误，宿主启动监听正常，零适配改动）；双 bundle `node --check` 通过 |
+| `v0.3.27`（默认） | 与上一版相同 | **自带 bundle 声明**：补齐 `cordis.patch.yml` 并声明 `dsh.bundle.patch`——`dsh plugin --profile web add` 装完自动注册并挂载 profile 层，不再需要手写 insert 行（社区反馈「GUI 安装后不生效」的根因）；双 bundle `node --check` 通过 |
+| `v0.3.26` | `dsh-v0.1.2-alpha.1 ~ alpha.5`、`rc.1`、`0.1.3-alpha.1 ~ 0.1.7-alpha.2`、`0.1.7-rc.1`、`0.1.7-rc.2`、`0.2.0-rc.1`、`0.2.0-rc.2`、`0.2.1-alpha.1`、`0.2.1-alpha.2` | 声明支持 dsh-v0.2.1-alpha.2（升级实机验证：web profile `--dump-config` 全插件行加载、peer 校验零错误，宿主启动监听正常，零适配改动）；双 bundle `node --check` 通过 |
 | `v0.3.25` | `dsh-v0.1.2-alpha.1 ~ alpha.5`、`rc.1`、`0.1.3-alpha.1 ~ 0.1.7-alpha.2`、`0.1.7-rc.1`、`0.1.7-rc.2`、`0.2.0-rc.1`、`0.2.0-rc.2`、`0.2.1-alpha.1` | 声明支持 dsh-v0.2.1-alpha.1（升级实机验证：web 宿主七插件挂载激活正常，零适配改动）；typecheck/41 单测/构建全绿 |
 | `v0.3.24` | `dsh-v0.1.2-alpha.1 ~ alpha.5`、`rc.1`、`0.1.3-alpha.1 ~ 0.1.7-alpha.2`、`0.1.7-rc.1`、`0.1.7-rc.2`、`0.2.0-rc.1`、`0.2.0-rc.2` | 声明支持 dsh-v0.2.0-rc.2（升级实机验证：六插件挂载激活正常，零适配改动）；typecheck/41 单测/构建全绿 |
 | `v0.3.23` | `dsh-v0.1.2-alpha.1 ~ alpha.5`、`rc.1`、`0.1.3-alpha.1 ~ 0.1.7-alpha.2`、`0.1.7-rc.1`、`0.1.7-rc.2`、`0.2.0-rc.1` | 声明支持 dsh-v0.2.0-rc.1（升级实机验证：六插件挂载激活正常，零适配改动）；typecheck/41 单测/构建全绿 |

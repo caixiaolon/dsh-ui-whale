@@ -9,6 +9,9 @@ A resident pixel-whale companion plugin for the DSH Web UI: a small whale lives 
 > - DSH **0.1.2-alpha.1 / alpha.2 / alpha.3 / alpha.4 / alpha.5 / rc.1**: install the **new** version (the default command below)
 ## Install
 
+> **Install note (auto-mounts since v0.3.27)**: this package ships its own `cordis.patch.yml` and declares `dsh.bundle.patch` — `dsh plugin --profile web add` registers and mounts the profile layer automatically; the manual `insert` row is only needed for pinned older tags. **GUI caveat**: the Add-plugin dialog accepts registry package names or local directory paths only; `name@github:owner/repo#tag` is pnpm alias syntax (CLI-only) and fails there with `ERR_PNPM_INVALID_PACKAGE_NAME`. Clone and use the local path, or wait for the npm release.
+
+
 ```sh
 # Option 1: pinned-tag git dependency (public mirror, recommended; github:lhh010/dsh-ui-whale also works)
 dsh plugin --profile web add '@dsh-external/dsh-ui-whale@github:lhh010/dsh-ui-whale#v0.3.16'
