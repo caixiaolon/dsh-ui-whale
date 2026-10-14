@@ -51,7 +51,8 @@ Build artifacts are updated with each DSH snapshot; pick the version matching yo
 
 | Plugin version | DSH snapshot | Notes |
 | --- | --- | --- |
-| `v0.3.26` (default) | `snapshots/20260805T134133Z` (snapshot0805)、`0.2.1-alpha.2` | Declare dsh-v0.2.1-alpha.2 support (verified on the real web profile: `--dump-config` loads every plugin row with zero peer errors, host boots and listens, no adaptation changes); both bundles pass `node --check` |
+| `v0.3.28` (default) | same as previous | Declare dsh-v0.2.1-alpha.3 support (verified on the live host: `--dump-config` loads every plugin row with zero errors; read-only runtime probes show file-trace mermaid/katex routes 200 and the better-sidebar fence live; the host keeps the webStartup service — zero adaptation across the six plugins); both bundles pass `node --check` |
+| `v0.3.26` | `snapshots/20260805T134133Z` (snapshot0805)、`0.2.1-alpha.2` | Declare dsh-v0.2.1-alpha.2 support (verified on the real web profile: `--dump-config` loads every plugin row with zero peer errors, host boots and listens, no adaptation changes); both bundles pass `node --check` |
 | `v0.1.0` | `snapshots/20260805T134133Z` (snapshot0805) | Legacy build; install with the old method (`~/.dsh/config.yaml` + `pnpm add -w link:`) |
 | `v0.2.0` | `snapshots/20260806T160212Z` (snapshot0806) | New 0806 build; install with the new method |
 | `v0.3.0` | `snapshots/20260806T160212Z` (snapshot0806) | 0806 build + sleep animation (falls asleep after 10 s of continuous idle) |
